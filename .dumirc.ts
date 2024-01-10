@@ -8,7 +8,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const base = isProd ? `/${repo}/` : '/';
 const publicPath = isProd ? `/${repo}/` : '/';
-const logo = isProd ? `/${repo}/logo.png` : './logo.png';
+const logo = isProd ? `/${repo}/logo.png` : '/logo.png';
 
 export default defineConfig({
   base,

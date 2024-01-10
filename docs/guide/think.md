@@ -42,7 +42,7 @@ res<T> = await fn<T>(component,props<P>) = view<P&T>
 
 #### 工作原理
 
-EasyModal 由多个方法和钩子组成，它们共同提供这些功能：
+EasyModal 由多个方法和钩子组成，它们提供这些功能：
 
 - `create` 函数用于为您的模态框组件生成高阶组件（HOC）。
 - `EasyModal` 上的`show`、`update`、`hide` 和 `remove` 函数用于在代码的任何位置控制模态框。

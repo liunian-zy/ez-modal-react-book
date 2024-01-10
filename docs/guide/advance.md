@@ -20,7 +20,7 @@ demo:
 ```tsx {3,11,18,19} | pure
 import EasyModal, { InnerModalProps } from 'ez-modal-react';
 
-interface Props extends InnerModalProps<number> /*类型约束*/ {
+interface IProps extends InnerModalProps<number> /*类型约束*/ {
   name: string;
   age: number;
 }
@@ -35,8 +35,8 @@ const InfoModal = EazyModal.create((props: IProps) => (
   </Modal>
 ));
 
-// 1. 缺少属性 age:number;
-// 2. res: string
+// 1. 缺少属性 age:number;⚠️
+// 2. res: string;⚠️
 const res = await EasyModal.show(InfoModal, { name: 'foo' });
 ```
 
@@ -56,7 +56,7 @@ const res = await EasyModal.show(InfoModal, { name: 'foo' });
 ```tsx {20,21} | pure
 import EasyModal, { InnerModalProps } from 'ez-modal-react';
 
-interface Props extends InnerModalProps<string> {
+interface IProps extends InnerModalProps<string> {
   name: string;
   age: number;
 }
