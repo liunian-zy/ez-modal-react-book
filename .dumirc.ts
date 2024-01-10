@@ -6,8 +6,8 @@ const repo = 'ez-modal-react-book';
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const base = isProd ? `/${repo}/` : undefined;
-const publicPath = isProd ? `/${repo}/` : undefined;
+const base = isProd ? `/${repo}/` : '/';
+const publicPath = isProd ? `/${repo}/` : '/';
 
 export default defineConfig({
   base,
@@ -17,12 +17,11 @@ export default defineConfig({
     { id: 'en-US', name: 'EN' },
   ],
   outputPath: 'docs-dist',
-  favicons: ['/logo.png'],
-  logo: '/logo.png',
+  favicons: ['logo.png'],
+  logo: 'logo.png',
   themeConfig: {
     name: 'ez-modal-react',
-    logo: '/logo.png',
-
+    logo: 'logo.png',
     nav: {
       'zh-CN': [
         { title: '快速开始', link: '/guide/base' },
