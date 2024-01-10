@@ -8,6 +8,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const base = isProd ? `/${repo}/` : '/';
 const publicPath = isProd ? `/${repo}/` : '/';
+const logo = isProd ? '/${repo}/logo.png' : './logo.png';
 
 export default defineConfig({
   base,
@@ -17,11 +18,11 @@ export default defineConfig({
     { id: 'en-US', name: 'EN' },
   ],
   outputPath: 'docs-dist',
-  favicons: ['logo.png'],
-  logo: 'logo.png',
+  favicons: [logo],
+  logo: logo,
   themeConfig: {
     name: 'ez-modal-react',
-    logo: 'logo.png',
+    logo: logo,
     nav: {
       'zh-CN': [
         { title: '快速开始', link: '/guide/base' },
@@ -36,7 +37,7 @@ export default defineConfig({
       github: 'https://github.com/raotaohub/ez-modal-react',
     },
     footer: 'ez-modal-react',
-    nprogress: false,
+    nprogress: true,
   },
   alias: {
     'ez-modal-react': path.join(__dirname, './node_modules/ez-modal-react'),

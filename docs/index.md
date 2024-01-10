@@ -1,8 +1,8 @@
 ---
 hero:
-  title: ez~~
+  title: ez~
   description: Reduce the tedious status management.Support type infer.Small size
   actions:
-    - text: quick start
+    - text: 快速开始
       link: /guide
 ---
