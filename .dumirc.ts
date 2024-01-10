@@ -2,11 +2,12 @@ import { defineConfig } from 'dumi';
 import path from 'path';
 
 //github仓库名称
+const repo = 'ez-modal-react-book';
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const base = isProd ? '/ez-modal-react-book' : undefined;
-const publicPath = isProd ? `${base}/` : undefined;
+const base = isProd ? `/${repo}/` : undefined;
+const publicPath = isProd ? `/${repo}/` : undefined;
 
 export default defineConfig({
   base,
