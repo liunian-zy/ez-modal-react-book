@@ -21,6 +21,7 @@ const InfoModal = EazyModal.create((props: IProps) => (
     open={props.visible}
     onOk={() => props.hide('ok')}
     onCancel={() => props.hide(null)}
+    afterClose={props.remove}
   >
     hello {props.name}
   </Modal>
@@ -56,6 +57,7 @@ const InfoModal = (props: IProps) => {
       open={props.visible}
       onOk={() => props.hide('ok')}
       onCancel={() => props.hide(null)}
+      afterClose={props.remove}
     >
       hello {props.name}
     </Modal>

@@ -32,6 +32,7 @@ const style: React.CSSProperties = {
 
 const { Text } = Typography;
 
+let conut = 1;
 export const Mult = (props: IProps) => {
   const [count, setCount] = React.useState<string>();
   return (
@@ -40,6 +41,7 @@ export const Mult = (props: IProps) => {
       open={props.visible}
       onOk={() => props.hide(count!)}
       onCancel={() => props.hide(null)}
+      afterClose={props.remove}
     >
       <div>
         props.name <Text type="success">{props.name}</Text>
@@ -57,7 +59,7 @@ export const Mult = (props: IProps) => {
 
       <Button
         onClick={() => {
-          EasyModal.show(Mult, { name: 'easy', age: 54 }, { id: 'easy' }).then(
+          EasyModal.show(Mult, { name: 'easy' + conut++, age: 54 }).then(
             (result) => {
               message.success('show-result:' + result);
             },
@@ -111,11 +113,7 @@ export default function App() {
             <Button
               type="primary"
               onClick={async () => {
-                EasyModal.show(
-                  Mult,
-                  { name: 'hello', age: 20 },
-                  { id: 'hello' },
-                ).then((result) => {
+                EasyModal.show(Mult, { name, age }).then((result) => {
                   message.success('show-result:' + result);
                 });
               }}

@@ -4,9 +4,9 @@ import React from 'react';
 
 interface Props extends InnerModalProps<number> {
   index: number;
+  loading: boolean;
 }
 
-/* 1. not use EasyModal.create function */
 export const ExampleModal = (props: Props) => {
   const modal = useModal<Props>();
 
@@ -16,7 +16,8 @@ export const ExampleModal = (props: Props) => {
       open={modal.visible}
       onOk={() => modal.hide(props.index)}
       onCancel={() => modal.hide(null)}
-      afterClose={() => modal.remove}
+      afterClose={modal.remove}
+      confirmLoading={props.loading}
     ></Modal>
   );
 };
@@ -30,20 +31,22 @@ export default function App() {
           onClick={async () => {
             EasyModal.show(
               ExampleModal,
-              { index: 4 },
+              { index: 4, loading: true },
+              /* 打开时指定id */
               { id: 'hello world' },
             ).then((result) => {
               console.log('show-result:', result);
             });
 
-            message.info('3秒后更新title内容');
+            message.info('3秒后更新title内容', 3000);
 
             setTimeout(() => {
-              EasyModal.update('hello world', { index: 66 });
+              /* 更新时传入指定id */
+              EasyModal.update('hello world', { index: 66, loading: false });
             }, 3000);
           }}
         >
-          MultModal
+          更新 Mult 模式组件
         </Button>
       </Space>
     </EasyModal.Provider>

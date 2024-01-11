@@ -30,6 +30,7 @@ const InfoModal = EazyModal.create((props: IProps) => (
     open={props.visible}
     onOk={() => props.hide('ok')} // 类型“string”的参数不能赋给类型“number”的参数。ts(2345)⚠️
     onCancel={() => props.hide(null)} // null 作为安全值也被允许
+    afterClose={props.remove}
   >
     hello {props.name}
   </Modal>
@@ -67,6 +68,7 @@ const InfoModal = (props: IProps) => {
       open={props.visible}
       onOk={() => props.hide('ok')}
       onCancel={() => props.hide(null)}
+      afterClose={props.remove}
     >
       hello {props.name}
     </Modal>
