@@ -93,18 +93,22 @@ const res3 = await EasyModal.show(
   { name: 'foo2' },
   { id: 'i am a id' },
 );
-EasyModal.remove('i am a id');
+EasyModal.update('i am a id', { name: 'foo3' });
 ```
 
 <code src="./demo/updatemult.tsx" description='更新 mult 模式组件的示例'></code>
 
 ### 3. 销毁组件
 
-调用`props.remove`即可立即销毁该组件，针对不同的 UI 组件库，需要在其对应的监听函数中调用该方法。
+销毁组件会立即将其从渲染树中移除。
 
-对于`antd，则是在afterClose`里
+在组件内部通过调用`remove`方法，即可立即销毁该组件。
 
-```tsx | pure
+市面上所有的 UI 组件库，在隐藏时都会有一段加载动画而不立即销毁组件。因此当需要销毁一个组件时，需要在其生命周期`对应的监听函数`中调用该方法。
+
+对于`antd，则是在afterClose`里，这里有个例子。
+
+```tsx {5} | pure
 const InfoModal = (props: IProps) => (
   <Modal
     open={props.visible}
@@ -116,3 +120,5 @@ const InfoModal = (props: IProps) => (
   </Modal>
 );
 ```
+
+<code src="./demo/remove.tsx" description='销毁组件的示例'></code>
