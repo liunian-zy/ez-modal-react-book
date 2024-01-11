@@ -41,7 +41,7 @@ export default function App() {
 
             setTimeout(() => {
               /* 移除时传入指定id */
-              // EasyModal.remove(1);
+              EasyModal.remove(2);
             }, 3000);
           }}
         >
@@ -62,7 +62,7 @@ export default function App() {
 
             setTimeout(() => {
               /* 更新时传入HOC */
-              // EasyModal.remove(MyExampleModalHOC);
+              EasyModal.remove(MyExampleModalHOC);
             }, 3000);
           }}
         >
