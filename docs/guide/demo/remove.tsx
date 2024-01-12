@@ -37,7 +37,7 @@ export default function App() {
               console.log('show-result:', result);
             });
 
-            message.info('3秒后立即移除组件', 3000);
+            message.info('3秒后立即移除组件', 3);
 
             setTimeout(() => {
               /* 移除时传入指定id */
@@ -58,7 +58,7 @@ export default function App() {
               },
             );
 
-            message.info('3秒后立即移除组件', 3000);
+            message.info('3秒后立即移除组件', 3);
 
             setTimeout(() => {
               /* 更新时传入HOC */

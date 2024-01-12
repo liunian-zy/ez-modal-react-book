@@ -38,7 +38,7 @@ export default function App() {
               console.log('show-result:', result);
             });
 
-            message.info('3秒后更新title内容', 3000);
+            message.info('3秒后更新title内容', 3);
 
             setTimeout(() => {
               /* 更新时传入指定id */
