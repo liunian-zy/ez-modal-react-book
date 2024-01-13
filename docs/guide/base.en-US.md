@@ -1,18 +1,21 @@
 ---
-nav: 快速开始
+nav: Quick Start
+title: start
 group:
-  title: 基础用法
-  order: 0
-order: 0
+  title: Quick Start
+  order: 1
+order: 1
+demo:
+  tocDepth: 1
 ---
 
-## 初始化
+# Initialization
 
-## 环境准备
+## Environment Setup
 
-确保你使用的 <a href="https://github.com/facebook/react">react.js</a> 版本 >= 16.8。
+Ensure that you are using <a href="https://github.com/facebook/react">react.js</a> version >= 16.8.
 
-## 安装
+## Installation
 
 ```shell
 # with yarn
@@ -22,27 +25,26 @@ yarn add ez-modal-react -S
 npm install ez-modal-react -S
 ```
 
-## 使用
+## Usage
 
-### 1. 使用 Provider 包裹应用
+### 1. Wrapping the Application with Provider
 
-#### react16
+#### For React 16
 
-```tsx {4,6} | pure
+```tsx | pure
 import EasyModal from 'ez-modal-react';
 
 ReactDOM.render(
-    <EasyModal.Provider>
-      <App />
-    </EasyModal.Provider>
+  <EasyModal.Provider>
+    <App />
+  </EasyModal.Provider>,
   document.getElementById('root'),
 );
-
 ```
 
-#### react18
+#### For React 18
 
-```tsx {4,6} | pure
+```tsx | pure
 import EasyModal from 'ez-modal-react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -52,14 +54,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 ```
 
-### 2. 创建弹窗组件
+### 2. Creating Modal Component
 
-返回一个高阶组件，并且在其 props 上`注入`了额外的`实例属性与方法`，因此在组件内部可以获得控制权。
+`EasyModal.create` returns a higher-order component, injecting additional properties and methods into its props, allowing you to have control over the modal within the component.
 
 ```tsx | pure
 import EasyModal from 'ez-modal-react';
 
-const InfoModal = EazyModal.create((props) => (
+const InfoModal = EasyModal.create((props) => (
   <Modal
     open={props.visible}
     onOk={props.hide}
@@ -73,21 +75,22 @@ const InfoModal = EazyModal.create((props) => (
 export default InfoModal;
 ```
 
-> EazyModal.create 方法不是必须的，更多用法请看进阶用法
+> Note: `EasyModal.create` is not mandatory, for more usage, please refer to the [Advanced Usage](/en-US/guide/advance) section.
 
-### 3. 在任何地方使用
+### 3. Usage Anywhere
 
-调用 EasyModal.show，传入创建好的组件，打开弹窗
+Call `EasyModal.show`, passing the created component to open the modal.
 
 ```tsx | pure
 import EasyModal from 'ez-modal-react';
 
-const res = await EasyModal.show(InfoModal, { name: 'foo' }); //返回值 res， 接收到的是组件对应的hide()方法参数
+//The return value 'res' receives the argument when 'hide(arg)' is called inside the component
+const res = await EasyModal.show(InfoModal, { name: 'foo' });
 ```
 
-### 4. 其他静态方法
+### 4. Other Static Methods
 
-除了 show，在组件外部也可以控制组件的行为，有如下其余的静态方法
+Apart from `show`, you can also control the component's behavior outside the component using the following additional static methods.
 
 ```tsx | pure
 EasyModal.update(InfoModal, { name: 'update foo' });
@@ -95,36 +98,6 @@ EasyModal.hide(InfoModal);
 EasyModal.remove(InfoModal);
 ```
 
-### Info Badge <Badge>info</Badge>
+## Example
 
-### Warning Badge <Badge type="warning">warning</Badge>
-
-### Error Badge <Badge type="error">error</Badge>
-
-### Success Badge <Badge type="success">success</Badge>
-
-:::info{title=自定义标题}
-这是一条普通信息
-:::
-
-:::success
-这是一条成功信息
-:::
-
-:::warning
-这是一条警告信息
-:::
-
-:::error
-这是一条错误信息
-:::
-
-```jsx {5} | pure
-import React from 'react';
-
-export default () => (
-  <div>
-    <h1>Hello dumi!</h1>
-  </div>
-);
-```
+<code src="./demo/single.tsx">Example</code>

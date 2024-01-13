@@ -113,7 +113,7 @@ const res = await EasyModal.show(MyModal, { title: 'ez~' }); // props.hide()调�
 | arg2-props | 组件要更新的props,<a href="/guide/advance#1-使用类型推导">基于类型约束</a> | `{} extends P` | - | 1.0.1 |
 
 ```tsx | pure
-const res = await EasyModal.show(MyModal, { title: 'ez~' }); // props.hide()调用后得到返回值 'ok'
+const res = await EasyModal.update(MyModal, { title: 'ez~' });
 ```
 
 ### EasyModal.hide
@@ -125,7 +125,7 @@ const res = await EasyModal.show(MyModal, { title: 'ez~' }); // props.hide()调�
 
 ```tsx | pure
 const res = await EasyModal.show(MyModal, { title: 'ez~' }); // EasyModal.hide调用后得到返回值 '静态方法调用'
-EasyModal.hide('静态方法调用');
+EasyModal.hide(MyModal);
 ```
 
 ### EasyModal.remove
