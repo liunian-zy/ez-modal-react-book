@@ -4,5 +4,5 @@ hero:
   description: Reduce the tedious status management.Support type infer.
   actions:
     - text: Quick Start
-      link: /guide/base
+      link: /en-US/guide/base
 ---
