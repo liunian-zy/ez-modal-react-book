@@ -1,7 +1,7 @@
 ---
 hero:
   title: ez~
-  description: 简化模态框状态管理并提供类型推导~
+  description: Reduce the tedious status management.Support type infer.
   actions:
     - text: Quick Start
       link: /guide/base
