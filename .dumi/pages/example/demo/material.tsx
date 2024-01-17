@@ -32,6 +32,9 @@ const MaterialModal = EasyModal.create((props: IProps) => {
           props.hide(email);
         },
       }}
+      TransitionProps={{
+        onExited: () => props.remove(),
+      }}
     >
       <DialogTitle>Subscribe</DialogTitle>
       <DialogContent>

@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 
 const BootstrapModal = EasyModal.create((props) => {
   return (
-    <Modal show={props.visible} onHide={props.hide} onExit={props.remove}>
+    <Modal show={props.visible} onHide={props.hide} onExited={props.remove}>
       <Modal.Header closeButton>
         <Modal.Title>Modal heading</Modal.Title>
       </Modal.Header>

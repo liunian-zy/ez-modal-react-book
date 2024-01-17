@@ -17,13 +17,13 @@ interface IProps extends InnerModalProps<string> {
 const RsuiteModal = EasyModal.create((props: IProps) => {
   const [name, setName] = React.useState('RsuiteModal');
 
+  const cancel = (res?: string) => {
+    props.hide(res!);
+    setTimeout(() => props.remove(), 300); // Guaranteed loading animation
+  };
+
   return (
-    <Modal
-      backdrop={true}
-      keyboard={false}
-      open={props.visible}
-      onClose={() => props.hide(null)}
-    >
+    <Modal open={props.visible} onEsc={() => cancel()} onClose={() => cancel()}>
       <Modal.Header>
         <Modal.Title>Modal Title </Modal.Title>
       </Modal.Header>
@@ -40,8 +40,8 @@ const RsuiteModal = EasyModal.create((props: IProps) => {
       </Modal.Body>
 
       <Modal.Footer>
-        <Button onClick={() => props.hide(name)}>Ok</Button>
-        <Button onClick={() => props.hide('Cancel')}>Cancel</Button>
+        <Button onClick={() => cancel(name)}>Ok</Button>
+        <Button onClick={() => cancel('Cancel')}>Cancel</Button>
       </Modal.Footer>
     </Modal>
   );
