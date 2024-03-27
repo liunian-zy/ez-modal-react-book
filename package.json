@@ -53,7 +53,7 @@
     "antd": "^5.12.8",
     "antd-style": "^3.6.1",
     "bootstrap": "^5.3.2",
-    "ez-modal-react": "^1.0.2",
+    "ez-modal-react": "^1.0.4",
     "react-bootstrap": "^2.9.2",
     "rsuite": "^5.50.0"
   },
