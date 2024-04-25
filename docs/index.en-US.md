@@ -5,8 +5,6 @@ hero:
   actions:
     - text: Quick Start
       link: /en-US/guide/base
-    - text: Github
-      link: https://github.com/raotaohub/ez-modal-react
     - text: every React UI
       link: /en-US/example
 ---

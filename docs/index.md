@@ -5,8 +5,6 @@ hero:
   actions:
     - text: 快速开始
       link: /guide/base
-    - text: Github
-      link: https://github.com/raotaohub/ez-modal-react
     - text: 任意React UI 库
       link: /example
 ---
