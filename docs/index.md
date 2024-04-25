@@ -1,8 +1,12 @@
 ---
 hero:
-  title: ez~
-  description: 摆脱繁琐的状态管理，并提供类型推导~
+  title: ez-modal-react
+  description: 优雅的管理受 boolean 状态控制的组件，将行为Promise化，并提供类型推导~
   actions:
     - text: 快速开始
       link: /guide/base
+    - text: Github
+      link: https://github.com/raotaohub/ez-modal-react
+    - text: 任意React UI 库
+      link: /example
 ---
