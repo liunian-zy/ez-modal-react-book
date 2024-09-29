@@ -92,7 +92,7 @@ const res2 = await EasyModal.show(InfoModal, { name: 'foo2' });
 
 ##### 案例：
 
-下面这个 Table 每行有一个编辑 age 功能，`show`的第 1 参数，并不是通过`create`创建的，并且传递了`config.id`。同时在隐藏时并没有调用`remove`方法来销毁组件，这样做便实现了，每个窗口处理各自的内容。
+下面这个 Table 每行有一个编辑 age 功能，`show`的第 1 参数，并不是通过`create`创建的，并且传递了`config.id`，样做便实现了，每个窗口处理各自的内容。与此同时在隐藏时并没有调用`remove`方法来销毁组件，当弹窗隐藏后，组件内的状态仍然被保留。
 
 <code src="./demo/multInTable.tsx" description="mult 模式示例" tocDepth={3} cols={2}>mult 模式的应用场景</code>
 

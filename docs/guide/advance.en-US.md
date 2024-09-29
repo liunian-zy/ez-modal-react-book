@@ -92,7 +92,7 @@ const res2 = await EasyModal.show(InfoModal, { name: 'foo2' });
 
 ##### example：
 
-In the table below, each row has an edit age function. The first parameter of show is not created through create and config.id is passed. Additionally, the remove method is not called to destroy the component when it is hidden, thus allowing each window to handle its own content separately.
+In the table below, each row has an edit age function. The first parameter of `show` is not created through `create` and `config.id` is passed. This allows each window to handle its own content. At the same time, the `remove` method is not called to destroy the component when it is hidden. After the popup is hidden, the component's internal state is still preserved.
 
 <code src="./demo/multInTable.tsx" description="mult mode example" tocDepth={3} cols={2}>Application Scenarios for Mult Mode</code>
 
