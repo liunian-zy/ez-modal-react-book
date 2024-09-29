@@ -101,3 +101,9 @@ EasyModal.remove(InfoModal);
 ## Example
 
 <code src="./demo/single.tsx">Example</code>
+
+## extension
+
+[ez modal react snippets - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=raotao.ez-modal-snippets)
+
+Entering `ezModal` will prompt a message, then select the corresponding template.

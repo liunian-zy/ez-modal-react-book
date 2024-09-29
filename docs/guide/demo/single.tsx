@@ -42,12 +42,6 @@ export const SingleModal = EasyModal.create((props: IProps) => {
         props.age<Text type="success"> {props.age}</Text>
       </div>
 
-      <ul>
-        {new Array<number>(10).fill(0, 0, 10).map((_t, idx) => (
-          <li key={idx}>{idx}</li>
-        ))}
-      </ul>
-
       <Form.Item label="return">
         <Input
           style={style}

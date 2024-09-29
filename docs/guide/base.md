@@ -102,3 +102,9 @@ EasyModal.remove(InfoModal);
 ## 示例
 
 <code src="./demo/single.tsx">示例</code>
+
+## extension
+
+[ez modal react snippets - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=raotao.ez-modal-snippets)
+
+输入 `ezModal` 将弹出提示，选择对应的模板即可

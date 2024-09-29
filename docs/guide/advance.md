@@ -51,10 +51,10 @@ const res = await EasyModal.show(InfoModal, { name: 'foo' });
 #### mult 模式 <Badge>info</Badge>
 
 1. 直接在 EasyModal.show 方法中传入一个普通的组件，那么每次都会单独创建一个新的高阶组件。
-2. 会在该组件调用其对应的 hide 后自动销毁。
-3. 如果想要通过调用其他静态方法控制，需要指定`id`
+2. 没有指定`id`的组件在调用`hide`方法 300ms 后自动销毁，因为这被视为一次性的消费，详情[commit](https://github.com/raotaohub/ez-modal-react/commit/6eb4045e881890b60d0195657a69a77d2f8956a3)。
+3. 如果想要通过静态方法控制 mult 模式创建的组件，需要指定`id`。
 
-```tsx {20,21} | pure
+```tsx {21,22} | pure
 import EasyModal, { InnerModalProps } from 'ez-modal-react';
 
 interface IProps extends InnerModalProps<string> {
@@ -83,9 +83,22 @@ const res2 = await EasyModal.show(InfoModal, { name: 'foo2' });
 <code src="./demo/single.tsx" description="使用single模式" tocDepth={3} cols={2}>single模式</code>
 <code src="./demo/mult.tsx" description="mult 模式示例" tocDepth={3} cols={2}>mult模式</code>
 
+#### mult 模式的应用场景 <Badge>info</Badge>
+
+##### 例如：
+
+- 表单输入：用户需要填写多个不同的表单，每个表单可以独立操作和提交。
+- 订单处理：处理多个订单流程的不同步骤，每个订单独立跟踪和处理。
+
+##### 案例：
+
+下面这个 Table 每行有一个编辑 age 功能，`show`的第 1 参数，并不是通过`create`创建的，并且传递了`config.id`。同时在隐藏时并没有调用`remove`方法来销毁组件，这样做便实现了，每个窗口处理各自的内容。
+
+<code src="./demo/multInTable.tsx" description="mult 模式示例" tocDepth={3} cols={2}>mult 模式的应用场景</code>
+
 #### mult 模式如何调用静态方法操作组件？ <Badge>info</Badge>
 
-如果想在组件外部调用这些方法，那么需要传入 id,以方便 EazyModal 能找到他们。
+如果想在组件外部调用这些方法，那么需要传入 `id`,以方便 EazyModal 能找到他们。
 
 ```tsx | pure
 const res3 = await EasyModal.show(
@@ -98,13 +111,11 @@ EasyModal.update('i am a id', { name: 'foo3' });
 
 <code src="./demo/updatemult.tsx" description='更新 mult 模式组件的示例'></code>
 
-### 3. 销毁组件
+### 3. 销毁组件 <Badge>warning</Badge>
 
-销毁组件会立即将其从渲染树中移除。
+1. 调用`remove`方法销毁组件，会立即将其（fiber）从渲染树中移除。
 
-在组件内部通过调用`remove`方法，即可立即销毁该组件。
-
-市面上所有的 UI 组件库，在隐藏时都会有一段加载动画而不立即销毁组件。因此当需要销毁一个组件时，需要在其生命周期`对应的监听函数`中调用该方法。
+2. 市面上所有的 UI 组件库，在隐藏时都会有一段加载动画而不立即销毁组件。<b style='color:red'>因此当需要销毁一个组件时，需要在其生命周期`对应的监听函数`中调用该方法。</b>
 
 对于`antd，则是在afterClose`里，这里有个例子。
 
@@ -114,7 +125,7 @@ const InfoModal = (props: IProps) => (
     open={props.visible}
     onOk={() => props.hide('ok')}
     onCancel={() => props.hide(null)}
-    afterClose={props.remove}
+    afterClose={props.remove} // 这会使Modal组件的隐藏动画顺利执行，并且在隐藏动画结束后，组件会被销毁。
   >
     hello {props.name}
   </Modal>
