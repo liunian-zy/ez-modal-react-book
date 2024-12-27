@@ -62,7 +62,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 ```tsx | pure
 import EasyModal from 'ez-modal-react';
 
-const InfoModal = EazyModal.create((props) => (
+const InfoModal = EasyModal.create((props) => (
   <Modal
     open={props.visible}
     onOk={props.hide}
@@ -76,7 +76,7 @@ const InfoModal = EazyModal.create((props) => (
 export default InfoModal;
 ```
 
-> EazyModal.create 方法不是必须的，更多用法请看<a title="进阶用法" class="" href="/guide/advance">进阶用法</a>
+> EasyModal.create 方法不是必须的，更多用法请看<a title="进阶用法" class="" href="/guide/advance">进阶用法</a>
 
 ### 3. 在任何地方使用
 
